@@ -1,1 +1,1 @@
-# Web Sys Activities
+# WS Activities
