@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    --ink: #17202a;
+    --muted: #66727f;
+    --line: #dbe2e8;
+    --paper: #ffffff;
+    --accent: #0f766e;
+    --accent-dark: #115e59;
+    --error: #b42318;
+    --error-background: #fff1f0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: linear-gradient(135deg, #dfeee9, #f4ece2);
+}
+
+.page-shell {
+    width: min(100% - 32px, 1040px);
+    margin: 0 auto;
+    padding: 64px 0 80px;
+}
+
+.page-header {
+    max-width: 700px;
+    margin-bottom: 36px;
+}
+
+.eyebrow {
+    margin: 0 0 14px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1,
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+h1 {
+    margin: 0 0 18px;
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -1px;
+}
+
+.intro,
+.section-heading p,
+.form-actions p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.intro {
+    max-width: 590px;
+    margin: 0;
+    font-size: 17px;
+}
+
+.summary-error {
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    color: #8f1d1d;
+    font-weight: 700;
+    background: #ffe4e1;
+    border: 2px solid #e57368;
+    border-left: 6px solid var(--error);
+}
+
+form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-section {
+    padding: 30px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 30px rgba(34, 52, 61, .08);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+}
+
+.section-heading > span {
+    padding-top: 4px;
+    color: var(--accent);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 0 0 5px;
+    font-size: 22px;
+}
+
+.section-heading p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 20px;
+}
+
+.field {
+    min-width: 0;
+}
+
+.field:has(textarea) {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 14px;
+    color: var(--ink);
+    font: inherit;
+    background: #fbfcfc;
+    border: 1px solid #cbd5dc;
+    border-radius: 3px;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+
+input {
+    height: 48px;
+}
+
+textarea {
+    min-height: 118px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa5ae;
+}
+
+input:focus,
+textarea:focus {
+    outline: 0;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, .16);
+}
+
+.field-invalid {
+    padding: 10px;
+    margin: -10px;
+    background: var(--error-background);
+    border: 1px solid #f0aaa4;
+    border-radius: 4px;
+}
+
+.field-invalid label {
+    color: var(--error);
+}
+
+.field-invalid input,
+.field-invalid textarea {
+    background: #fffafa;
+    border: 2px solid var(--error);
+}
+
+.field-invalid input:focus,
+.field-invalid textarea:focus {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(180, 35, 24, .18);
+}
+
+.error {
+    display: block;
+    margin: 8px 0 0;
+    color: var(--error);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 4px;
+}
+
+.form-actions p {
+    margin: 0;
+    font-size: 13px;
+}
+
+button {
+    padding: 15px 22px;
+    color: #fff;
+    font: 700 15px 'DM Sans', sans-serif;
+    background: var(--accent);
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent-dark);
+}
+
+button span {
+    margin-left: 10px;
+    font-size: 20px;
+    vertical-align: -1px;
+}
+
+@media (max-width: 680px) {
+    .page-shell {
+        width: min(100% - 22px, 560px);
+        padding: 36px 0 52px;
+    }
+
+    .form-section {
+        padding: 22px 18px;
+    }
+
+    .field-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field:has(textarea) {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
